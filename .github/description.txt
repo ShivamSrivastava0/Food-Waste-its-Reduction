@@ -1,0 +1,1 @@
+A web-based initiative aimed at raising awareness and providing solutions to reduce food waste. Built with HTML and CSS, the project presents educational content, actionable strategies, and resources to empower individuals and organizations to minimize their food footprint.
