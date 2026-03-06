@@ -1,45 +1,192 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Food Waste and Its Reduction</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <header>
-        <h1>Food Waste and Its Reduction</h1>
-    <nav>
-        <ul>
-            <a href="index.html">Home</a>
-            <a href="statistics.html">Statistics</a>
-            <a href="causes.html">Causes</a>
-            <a href="effects.html">Effects</a>
-            <a href="solutions.html">Solutions</a>
-            <a href="standards.html">Standards</a>
-            <a href="faq.html">FAQ</a>
-            <a href="members.html">Made by Members</a>
-        </ul>
-    </nav>
-    </header>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Food Waste and Its Reduction</title>
 
-    <main>
-        <section class="intro">
-            <h2>Welcome to Food Waste and Its Reduction</h2>
-            <p>Food waste is a global issue that affects the environment, economy, and food security. Every year, approximately one-third of all food produced is wasted, which could feed millions of people. This website aims to provide insights into food waste, its causes, effects, and ways to reduce it.</p>
-        </section>
-        <section>
-            <img src="mm.png" alt="kk" height="650" width="950">
-        </section>
-        <section class="content">
-            <h2>Why Food Waste Matters</h2>
-            <p>Food waste has serious environmental impacts. When food is discarded, the resources used to produce it—including water, land, and energy—are also wasted. Decomposing food in landfills emits methane, a potent greenhouse gas that contributes to climate change. Additionally, the financial cost of food waste is immense, with billions of dollars lost globally every year.</p>
-            <p>Reducing food waste is essential to sustainable development. By cutting down on waste, we can conserve resources, reduce emissions, and improve food availability for people in need. Through awareness and adherence to food waste reduction standards, we can all play a role in making a positive impact.</p>
-            <p>Explore this website to learn more about the causes of food waste, the standards for reduction, and practical steps you can take to minimize waste in your own life.</p>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2024 Food Waste and Its Reduction Team</p>
-    </footer>
+<link rel="stylesheet" href="styles.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<header>
+
+<h1>
+<i class="fa-solid fa-leaf"></i>
+Food Waste and Its Reduction
+</h1>
+
+<nav>
+<ul>
+<a href="index.html">Home</a>
+<a href="statistics.html">Statistics</a>
+<a href="causes.html">Causes</a>
+<a href="effects.html">Effects</a>
+<a href="solutions.html">Solutions</a>
+<a href="standards.html">Standards</a>
+<a href="faq.html">FAQ</a>
+<a href="members.html">Members</a>
+</ul>
+</nav>
+
+</header>
+
+<main>
+
+<section class="intro">
+
+<h2>Welcome</h2>
+
+<p>
+Food waste is a global issue affecting the environment, economy, and food security.
+Every year approximately one-third of all food produced is wasted.
+</p>
+
+</section>
+
+<section>
+
+<img src="mm.png" alt="Food Waste Awareness">
+
+</section>
+
+<section class="content">
+
+<h2>Why Food Waste Matters</h2>
+
+<p>
+Food waste has serious environmental impacts. When food is discarded, the resources used to produce it—including water, land, and energy—are also wasted.
+</p>
+
+<p>
+Decomposing food in landfills emits methane, a greenhouse gas contributing to climate change.
+</p>
+
+</section>
+
+<section class="quote-box">
+
+<h2>🌍 Sustainability Quote</h2>
+
+<p id="quoteText">
+“Reducing food waste is one of the most powerful things we can do to reverse global warming.”
+</p>
+
+<button onclick="newQuote()">New Quote</button>
+
+</section>
+
+</main>
+
+<footer>
+
+<p>&copy; 2024 Food Waste and Its Reduction Team</p>
+
+</footer>
+
+<!-- CHATBOT ICON -->
+
+<div class="chat-icon" onclick="toggleChat()">
+<i class="fa-solid fa-robot"></i>
+</div>
+
+<!-- CHATBOT -->
+
+<div class="chatbot" id="chatbot">
+
+<div class="chat-header">
+
+Food Waste AI Assistant
+
+<span onclick="toggleChat()" class="close-btn">✖</span>
+
+</div>
+
+<div class="chat-messages" id="chatMessages"></div>
+
+<div class="chat-input">
+
+<input id="chatInput" placeholder="Ask about food waste">
+
+<button onclick="sendChat()">Send</button>
+
+</div>
+
+</div>
+
+<script>
+    function toggleChat(){
+
+let bot = document.getElementById("chatbot")
+
+if(bot.style.display === "block")
+bot.style.display = "none"
+else
+bot.style.display = "block"
+
+}
+
+function sendChat(){
+
+let input = document.getElementById("chatInput").value
+let messages = document.getElementById("chatMessages")
+
+messages.innerHTML += "<p><b>You:</b> " + input + "</p>"
+
+let reply = ""
+
+let text = input.toLowerCase()
+
+if(text.includes("hello"))
+reply = "Hello! I can help you learn how to reduce food waste."
+
+else if(text.includes("food waste"))
+reply = "Food waste means edible food being discarded instead of consumed."
+
+else if(text.includes("reduce"))
+reply = "Plan meals, store food properly, reuse leftovers and donate extra food."
+
+else if(text.includes("environment"))
+reply = "Food waste produces methane gas which contributes to climate change."
+
+else
+reply = "Try asking about causes, effects, or solutions of food waste."
+
+messages.innerHTML += "<p><b>AI:</b> " + reply + "</p>"
+
+document.getElementById("chatInput").value = ""
+
+messages.scrollTop = messages.scrollHeight
+
+}
+
+let quotes = [
+
+"Food is too precious to waste.",
+
+"Saving food today saves the planet tomorrow.",
+
+"Wasting food means wasting resources.",
+
+"Respect food — millions go hungry every day.",
+
+"Reducing food waste protects our environment."
+
+]
+
+function newQuote(){
+
+let random = Math.floor(Math.random() * quotes.length)
+
+document.getElementById("quoteText").innerText = quotes[random]
+
+}
+</script>
+
 </body>
 </html>
